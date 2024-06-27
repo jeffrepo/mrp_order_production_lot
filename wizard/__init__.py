@@ -1,0 +1,3 @@
+# -*- coding: utf-8 -*-
+
+from . import reporte_codigo_barras_lote
