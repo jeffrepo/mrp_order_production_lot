@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="reporte_codigo_barras_lote">
+        <t t-call="web.html_container">
+            <t t-set="count" t-value="0"/>
+            <t t-set="lot_list" t-value="create_lot"/>
+            <t t-foreach="lot_list" t-as="o">
+                    <t>
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div t-if="o['lot']" t-esc="o['lot'].name" t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'img_style': 'width:400px;height:100px;'}"/>
+                                    <div style="text-align:center"><span t-esc="o['lot'].name"/></div>
+                                    <div style="text-align:center"><span t-esc="o['product'].name" style="font-size:19px"/></div><br/>
+                                    <div class="left" style="float: left;font-size:19px">
+                                        <div style="text-align:center">ELAB.</div>
+                                        <span t-esc="o['elab']"/>
+                                    </div>
+                                    <div class="right" style="float: right;font-size:19px">
+                                        <div style="text-align:center">CAD.</div>
+                                        <span t-esc="o['cad']"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+            </t>
+
+        </t>
+    </template>
+</odoo>
