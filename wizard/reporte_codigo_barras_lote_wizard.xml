@@ -3,7 +3,7 @@
     <data>
         <record id="view_reporte_codigo_barras_wizard" model="ir.ui.view">
             <field name="name">view.mrp_order_production_lot.codigo.barras.wizard</field> 
-            <field name="model">mrp_order_production_lot.reporte_codigo_barras.wizard</field>
+            <field name="model">mrp_order_production_lot.reporte_codigo_barras_wizard</field>
             <field name="arch" type="xml">
                 <form string="Codigos de barra">
                     <group>
@@ -23,15 +23,13 @@
             </field>
         </record>
 
-        <!-- <record id="action_reporte_codigo_barras" model="ir.actions.act_window">
+        <record id="action_mrp_report_codigo_barras_wizard" model="ir.actions.act_window">
             <field name="name">Codigo de barras</field>
-            <field name="res_model">mrp_order_production_lot.reporte_codigo_barras.wizard</field>
+            <field name="res_model">mrp_order_production_lot.reporte_codigo_barras_wizard</field>
             <field name="view_mode">form</field>
             <field name="view_id" ref="view_reporte_codigo_barras_wizard"/>
             <field name="target">new</field>
-            <field name="binding_model_id" ref="model_op_lote"/>
-        </record> -->
-        
+            <field name="binding_model_id" ref="mrp_order_production_lot.model_mrp_order_production_lot_op_lote"/>
+        </record>
     </data>
 </odoo>
-
