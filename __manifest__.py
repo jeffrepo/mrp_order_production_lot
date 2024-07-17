@@ -2,10 +2,10 @@
 {
     'name': "Order Lote",
 
-    'summary': """ Desarrollo extra quemen """,
+    'summary': """ Café Brujula """,
 
     'description': """
-        Desarrollo extra pra quemen
+        Desarrollo para Café Brujula
     """,
 
     'author': "JS",
