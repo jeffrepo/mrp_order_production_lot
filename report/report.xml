@@ -9,6 +9,7 @@
             <field name="report_file">mrp_order_production_lot.reporte_codigo_barras_lote</field>
             <field name="print_report_name">'Codigo barras'</field>
             <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="paperformat_codigo_barra"/>
         </record>
     </data>
 </odoo>
