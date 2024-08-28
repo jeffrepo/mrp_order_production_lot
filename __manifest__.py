@@ -14,10 +14,12 @@
     'category': 'Uncategorized',
     'version': '1.01',
 
-    'depends': ['stock','base','point_of_sale','hr_payroll','mrp','sale_stock','l10n_mx_edi_stock', 'pos_coupon','l10n_mx_edi','l10n_mx_edi_40','delivery'],
-
+    'depends': ['stock','base','point_of_sale','hr_payroll','mrp','sale_stock','l10n_mx_edi_stock', 'pos_coupon','l10n_mx_edi','l10n_mx_edi_40','delivery','l10n_mx_edi_stock_30','l10n_mx_edi_stock_extended_31'],
+    
     'data': [
+        'data/paperformat_ticket.xml',
         'security/ir.model.access.csv',
+        'views/stock_production_lot_views.xml',
         'views/mpr_order_production_lot.xml',
         'views/mrp_bom.xml',
         'report/report.xml',
