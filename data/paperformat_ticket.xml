@@ -49,7 +49,14 @@
             <field name="header_spacing">3</field>
             <field name="dpi">90</field>
         </record>
-
+        
+        <record id="seq_orden_produccion_lote" model="ir.sequence">
+            <field name="name">Orden produccion lote</field>
+            <field name="code">mrp_order_production_lot.op_lote</field>
+            <field name="prefix">OPLOTE/</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
 
     </data>
 </odoo>
