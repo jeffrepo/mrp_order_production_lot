@@ -24,7 +24,7 @@ class OrderLote(models.Model):
             seq_date = None
             if 'company_id' in vals:
                 vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
-                    'mrp_order_production_lot.retiros', sequence_date=seq_date) or _('New')
+                    'mrp_order_production_lot.op_lote', sequence_date=seq_date) or _('New')
             else:
                 vals['name'] = self.env['ir.sequence'].next_by_code('mrp_order_production_lot.op_lote', sequence_date=seq_date) or _('New')
 
