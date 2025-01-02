@@ -130,10 +130,6 @@ class CaodigoBarrasLote(models.AbstractModel):
                     #                                                   'use_date': use_date,
                     #                                                   'alert_date': alert_date,
                     #                                                   'company_id': 1})
-                    # logging.warning('lote')
-                    # logging.warning(lot_id)
-                    # if lot_id:
-                    #     line.write({'lot_barcode_id': lot_id})
 
                 dates = self.fecha_barras(line.lot_barcode_id)
                 # date_numbers = self.fecha_barras_numero(line.lot_barcode_id)
@@ -175,7 +171,6 @@ class CaodigoBarrasLote(models.AbstractModel):
         return {
             'doc_ids': docids,
             'doc_model': 'mrp_order_production_lot.reporte_codigo_barras_lote',
-            # 'docs': docs,
             'fecha_barras': self.fecha_barras,
             'create_lot': create_lot_f,
         }

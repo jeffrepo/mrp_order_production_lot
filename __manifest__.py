@@ -22,15 +22,10 @@
         'views/stock_production_lot_views.xml',
         'views/mpr_order_production_lot.xml',
         'views/mrp_bom.xml',
+        'report/reporte_explosion_insumos.xml',
         'report/report.xml',
         'report/reporte_codigo_barras_lote.xml',
         'wizard/reporte_codigo_barras_lote_wizard.xml',
-
-        
-
-    ],
-    'qweb': [
-        # 'static/src/xml/pos.xml',
     ],
     'assets':{
         
