@@ -1,12 +1,9 @@
-from re import findall as regex_findall
-from re import split as regex_split
+# -*- coding: utf-8 -*-
 
-from odoo.tools.misc import attrgetter
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
 
 
-class ProductionLot(models.Model):
-    _inherit = 'stock.production.lot'
+class StockLot(models.Model):
+    _inherit = 'stock.lot'
 
     elaboration_date = fields.Date('Fecha de elaboración')

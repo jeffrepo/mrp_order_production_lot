@@ -15,11 +15,10 @@ class QuemenOpLoteLinea(models.Model):
     quantity = fields.Float('Cantidad',tracking=True)
     elaboration_date = fields.Date('Fecha elaboracion',tracking=True)
     qty_label = fields.Float('Cantidad etiquetas', default=1)
-    lot_barcode_id = fields.Many2one('stock.production.lot', 'Lote',tracking=True)
+    lot_barcode_id = fields.Many2one('stock.lot', 'Lote',tracking=True)
     lot_state = fields.Selection(
         [('borrador', 'Borrador'), ('confirmado', 'Confirmado')],
         'Estado', readonly=True, copy=False, related='lot_id.state')    
-    # wizard_id = fields.Many2one('quemen.reporte_codigo_barras.wizard', 'Wizard')
 
     @api.onchange('quantity')
     def _onchange_quantity(self):

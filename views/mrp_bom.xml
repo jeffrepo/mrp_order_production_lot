@@ -3,11 +3,11 @@
     <data>
 
         <record id="mrp_bom_form_view" model="ir.ui.view">
-            <field name="name">mrp_order_production_lot.mrp.bom.form</field>
+            <field name="name">mrp_order_production_lot.mrp.production.form</field>
             <field name="model">mrp.bom</field>
-            <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='bom_line_ids']/tree//field[@name='product_qty']" position="after">
+                <xpath expr="//field[@name='move_raw_ids']/list//field[@name='product_qty']" position="after">
                      <field name="location_src_id"/>
                      <field name="stage"/>
                 </xpath>

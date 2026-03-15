@@ -8,6 +8,9 @@ from datetime import datetime
 class StockMove(models.Model):
     _inherit = "stock.move"
 
+    stage = fields.Integer('Etapa')
+    location_src_id = fields.Many2one('stock.location','Ubicación origen')
+    
 
     def _search_picking_for_assignation(self):
         res = super(StockMove, self)._search_picking_for_assignation()
@@ -23,7 +26,7 @@ class StockMoveLine(models.Model):
     def _onchange_barcode(self):
         for line in self:
             if line.barcode:
-                lot_id = self.env['stock.production.lot'].search([('name','=',line.barcode)])
+                lot_id = self.env['stock.lot'].search([('name','=',line.barcode)])
                 if len(lot_id) > 0:
                     lot_info = False
                     if len(lot_id) == 1:

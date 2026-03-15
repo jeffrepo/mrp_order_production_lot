@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="action_report_codigo_barras_lote" model="ir.actions.report">
+        <!-- <record id="action_report_codigo_barras_lote" model="ir.actions.report">
             <field name="name">Codigo de barras</field>
             <field name="model">mrp_order_production_lot.op_lote</field>
             <field name="report_type">qweb-pdf</field>
@@ -10,7 +10,7 @@
             <field name="print_report_name">'Codigo barras'</field>
             <field name="binding_type">report</field>
             <field name="paperformat_id" ref="paperformat_codigo_barra"/>
-        </record>
+        </record> -->
         
         <record id="action_report_explosion_insumos" model="ir.actions.report">
             <field name="name">Explosión de insumos</field>
