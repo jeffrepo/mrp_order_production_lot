@@ -12,7 +12,7 @@
     'website': "",
 
     'category': 'Uncategorized',
-    'version': '1.02',
+    'version': '1.03',
 
     'depends': ['stock','base','mrp'],
     
