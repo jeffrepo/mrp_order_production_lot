@@ -18,17 +18,18 @@ class OrderLote(models.Model):
         [('borrador', 'Borrador'), ('confirmado', 'Confirmado')],
         'Estado', readonly=True, copy=False, default='borrador', tracking=True)
 
-    @api.model
-    def create(self, vals):
-        if vals.get('name', _('New')) == _('New'):
-            seq_date = None
-            if 'company_id' in vals:
-                vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
-                    'mrp_order_production_lot.op_lote', sequence_date=seq_date) or _('New')
-            else:
-                vals['name'] = self.env['ir.sequence'].next_by_code('mrp_order_production_lot.op_lote', sequence_date=seq_date) or _('New')
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                seq_date = None
+                if 'company_id' in vals:
+                    vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
+                        'mrp_order_production_lot.op_lote', sequence_date=seq_date) or _('New')
+                else:
+                    vals['name'] = self.env['ir.sequence'].next_by_code('mrp_order_production_lot.op_lote', sequence_date=seq_date) or _('New')
 
-        result = super(OrderLote, self).create(vals)
+        result = super(OrderLote, self).create(vals_list)
         return result
 
     def create_lot(self):
@@ -72,8 +73,8 @@ class OrderLote(models.Model):
                         'product_qty': line.quantity,
                         'bom_id': line.product_id.bom_ids.id,
                         'origin': line.lot_id.name,
-                        'lot_producing_id': line.lot_barcode_id.id,
-                        'date_planned_start': date_planed_start,
+                        #'lot_producing_id': line.lot_barcode_id.id,
+                        'date_start': date_planed_start,
                         'picking_type_id': line.product_id.bom_ids.picking_type_id.id,
                         'location_src_id': line.product_id.bom_ids.picking_type_id.default_location_src_id.id,
                         'location_dest_id': line.product_id.bom_ids.picking_type_id.default_location_dest_id.id
@@ -81,7 +82,7 @@ class OrderLote(models.Model):
                     }
                     mrp_order_id = self.env['mrp.production'].create(mrp_order)
 
-                    mrp_order_id._onchange_move_raw()
-                    mrp_order_id._onchange_move_finished()
+                    mrp_order_id._compute_move_raw_ids()
+                    mrp_order_id._compute_move_finished_ids()
             lot.write({'state': "confirmado"})
         return True
