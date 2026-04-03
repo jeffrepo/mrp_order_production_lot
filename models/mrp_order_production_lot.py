@@ -86,8 +86,3 @@ class OrderLote(models.Model):
                     #mrp_order_id._compute_move_finished_ids()
             lot.write({'state': "confirmado"})
         return True
-
-                    mrp_order_id._compute_move_raw_ids()
-                    mrp_order_id._compute_move_finished_ids()
-            lot.write({'state': "confirmado"})
-        return True
