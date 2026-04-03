@@ -69,7 +69,7 @@ class OrderLote(models.Model):
                         # 'name': line.lot_id.name,
                         'product_id': line.product_id.id,
                         'product_uom_id': line.product_id.uom_id.id,
-                        'qty_producing': line.quantity,
+                        #'qty_producing': line.quantity,
                         'product_qty': line.quantity,
                         'bom_id': line.product_id.bom_ids.id,
                         'origin': line.lot_id.name,
@@ -81,6 +81,11 @@ class OrderLote(models.Model):
                         # 'move_line_id': line.id,
                     }
                     mrp_order_id = self.env['mrp.production'].create(mrp_order)
+
+                    #mrp_order_id._compute_move_raw_ids()
+                    #mrp_order_id._compute_move_finished_ids()
+            lot.write({'state': "confirmado"})
+        return True
 
                     mrp_order_id._compute_move_raw_ids()
                     mrp_order_id._compute_move_finished_ids()
